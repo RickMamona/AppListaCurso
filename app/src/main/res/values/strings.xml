@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AppListaCurso</string>
+    <string name="txt_titulo">Lista Vip</string>
+    <string name="txt_hint_edit_primeiro_nome">Nome Completo</string>
+    <string name="txt_hint_edit_cpf">CPF</string>
+    <string name="txt_hint_edit_data_de_nascimento">Data de Nascimento</string>
+    <string name="txt_hint_edit_telefone_de_contato">Telefone de Contato</string>
+    <string name="txt_button_limpar">Limpar</string>
+    <string name="txt_button_salvar">Salvar</string>
+    <string name="txt_button_finalizar">Finalizar</string>
 </resources>
