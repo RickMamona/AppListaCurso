@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     Pessoa pessoa;
 
+    String dadosPessoa;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,5 +29,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
         pessoa = new Pessoa();
+
+        pessoa.setNomeCompleto("Rick Silva Mamona");
+        pessoa.setCpf("123.456.789-10");
+        pessoa.setDataDeNascimento("07/03/1994");
+        pessoa.setTelefoneContato("(79)99897-9643");
+
+        dadosPessoa = "Nome Completo: ";
+        dadosPessoa += pessoa.getNomeCompleto();
+        dadosPessoa +=" CPF: ";
+        dadosPessoa += pessoa.getCpf();
+        dadosPessoa +=" Data de Nascimento: ";
+        dadosPessoa += pessoa.getDataDeNascimento();
+        dadosPessoa += " Telefone de Contato: ";
+        dadosPessoa += pessoa.getTelefoneContato();
+
+        int parada = 0;
     }
 }
