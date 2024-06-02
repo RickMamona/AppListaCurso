@@ -2,6 +2,8 @@ package devandroid.mamona.applistacurso.view;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,15 @@ public class MainActivity extends AppCompatActivity {
     Pessoa pessoa;
 
     String dadosPessoa;
+
+    EditText editNomeCompleto;
+    EditText editCpf;
+    EditText editDataNascimento;
+    EditText editTelefone;
+
+    Button btnLimpar;
+    Button btnSalvar;
+    Button btnFinalizar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +55,20 @@ public class MainActivity extends AppCompatActivity {
         dadosPessoa += pessoa.getDataDeNascimento();
         dadosPessoa += " Telefone de Contato: ";
         dadosPessoa += pessoa.getTelefoneContato();
+
+        editNomeCompleto = findViewById(R.id.editNomeCompleto);
+        editCpf = findViewById(R.id.editCpf);
+        editDataNascimento = findViewById(R.id.editDataNascimento);
+        editTelefone = findViewById(R.id.editTelefone);
+
+        btnLimpar = findViewById(R.id.btnLimpar);
+        btnSalvar = findViewById(R.id.btnSalvar);
+        btnFinalizar = findViewById(R.id.btnFinalizar);
+
+        editNomeCompleto.setText(pessoa.getNomeCompleto());
+        editCpf.setText(pessoa.getCpf());
+        editDataNascimento.setText(pessoa.getDataDeNascimento());
+        editTelefone.setText(pessoa.getTelefoneContato());
 
 
         Log.i("POOAndroid", pessoa.toString());
