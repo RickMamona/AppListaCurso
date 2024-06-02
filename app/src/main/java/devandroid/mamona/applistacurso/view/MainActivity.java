@@ -2,8 +2,10 @@ package devandroid.mamona.applistacurso.view;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
 
         pessoa = new Pessoa();
 
-        pessoa.setNomeCompleto("Rick Silva Mamona");
-        pessoa.setCpf("123.456.789-10");
-        pessoa.setDataDeNascimento("07/03/1994");
-        pessoa.setTelefoneContato("(79)99897-9643");
+        //pessoa.setNomeCompleto("Rick Silva Mamona");
+        //pessoa.setCpf("123.456.789-10");
+       // pessoa.setDataDeNascimento("07/03/1994");
+       // pessoa.setTelefoneContato("(79)99897-9643");
 
         dadosPessoa = "Nome Completo: ";
         dadosPessoa += pessoa.getNomeCompleto();
@@ -69,6 +71,42 @@ public class MainActivity extends AppCompatActivity {
         editCpf.setText(pessoa.getCpf());
         editDataNascimento.setText(pessoa.getDataDeNascimento());
         editTelefone.setText(pessoa.getTelefoneContato());
+
+
+      //Implementando Clique dos botões
+        btnLimpar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editNomeCompleto.setText("");
+                editCpf.setText("");
+                editDataNascimento.setText("");
+                editTelefone.setText("");
+            }
+        });
+        btnFinalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Volte Sempre", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        });
+
+        btnSalvar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                pessoa.setNomeCompleto(editNomeCompleto.getText().toString());
+                pessoa.setCpf(editCpf.getText().toString());
+                pessoa.setDataDeNascimento(editDataNascimento.getText().toString());
+                pessoa.setTelefoneContato(editTelefone.getText().toString());
+
+                Toast.makeText(MainActivity.this, "Salvo"+pessoa.toString(), Toast.LENGTH_LONG).show();
+
+
+
+            }
+        });
+
 
 
         Log.i("POOAndroid", pessoa.toString());
