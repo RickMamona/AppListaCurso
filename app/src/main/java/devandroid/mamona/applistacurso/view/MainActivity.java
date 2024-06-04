@@ -14,9 +14,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import devandroid.mamona.applistacurso.R;
+import devandroid.mamona.applistacurso.controller.PessoaController;
 import devandroid.mamona.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
+
+    PessoaController controller;
     Pessoa pessoa;
     String dadosPessoa;
     EditText editNomeCompleto;
@@ -36,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        controller = new PessoaController();
+        controller.toString();
 
         pessoa = new Pessoa();
 
@@ -86,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
                 pessoa.setTelefoneContato(editTelefone.getText().toString());
 
                 Toast.makeText(MainActivity.this, "Salvo"+pessoa.toString(), Toast.LENGTH_LONG).show();
+
+                controller.salvar(pessoa);
             }
         });
 
