@@ -1,5 +1,6 @@
 package devandroid.mamona.applistacurso.view;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +19,10 @@ import devandroid.mamona.applistacurso.controller.PessoaController;
 import devandroid.mamona.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
+
+    SharedPreferences preferences;
+
+    public static final String NOME_PREFERENCES = "pref_lista";
 
     PessoaController controller;
     Pessoa pessoa;
@@ -39,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        preferences = getSharedPreferences(NOME_PREFERENCES,0);
+
+        SharedPreferences.Editor listavip = preferences.edit();
 
         controller = new PessoaController();
         controller.toString();
@@ -92,6 +101,12 @@ public class MainActivity extends AppCompatActivity {
                 pessoa.setTelefoneContato(editTelefone.getText().toString());
 
                 Toast.makeText(MainActivity.this, "Salvo"+pessoa.toString(), Toast.LENGTH_LONG).show();
+
+                listavip.putString("nomeCompleto",pessoa.getNomeCompleto());
+                listavip.putString("cpf",pessoa.getCpf());
+                listavip.putString("dataNascimento",pessoa.getDataDeNascimento());
+                listavip.putString("telefone",pessoa.getTelefoneContato());
+                listavip.apply();
 
                 controller.salvar(pessoa);
             }
