@@ -17,20 +17,15 @@ import devandroid.mamona.applistacurso.R;
 import devandroid.mamona.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
-
     Pessoa pessoa;
-
     String dadosPessoa;
-
     EditText editNomeCompleto;
     EditText editCpf;
     EditText editDataNascimento;
     EditText editTelefone;
-
     Button btnLimpar;
     Button btnSalvar;
     Button btnFinalizar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,11 +38,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         pessoa = new Pessoa();
-
-        //pessoa.setNomeCompleto("Rick Silva Mamona");
-        //pessoa.setCpf("123.456.789-10");
-       // pessoa.setDataDeNascimento("07/03/1994");
-       // pessoa.setTelefoneContato("(79)99897-9643");
 
         dadosPessoa = "Nome Completo: ";
         dadosPessoa += pessoa.getNomeCompleto();
@@ -71,9 +61,6 @@ public class MainActivity extends AppCompatActivity {
         editCpf.setText(pessoa.getCpf());
         editDataNascimento.setText(pessoa.getDataDeNascimento());
         editTelefone.setText(pessoa.getTelefoneContato());
-
-
-      //Implementando Clique dos botões
         btnLimpar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,20 +77,15 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 pessoa.setNomeCompleto(editNomeCompleto.getText().toString());
                 pessoa.setCpf(editCpf.getText().toString());
                 pessoa.setDataDeNascimento(editDataNascimento.getText().toString());
                 pessoa.setTelefoneContato(editTelefone.getText().toString());
 
                 Toast.makeText(MainActivity.this, "Salvo"+pessoa.toString(), Toast.LENGTH_LONG).show();
-
-
-
             }
         });
 
